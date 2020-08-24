@@ -14,7 +14,7 @@ class Shortener::ShortenedUrlsController < ActionController::Metal
   end
 
   def check_and_expire_url(url)
-    return unless category.eql?('login')
+    return unless url.category.eql?('login')
 
     url.expire!
   end
