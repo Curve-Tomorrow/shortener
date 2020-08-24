@@ -124,6 +124,10 @@ class Shortener::ShortenedUrl < ActiveRecord::Base
     unique_key
   end
 
+  def expire!
+    update(expires_at: Time.zone.now)
+  end
+
   private
 
   def self.unique_key_candidate
